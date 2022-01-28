@@ -23,15 +23,19 @@ if you have a weird setup, this is the mesh group that will be affected by the a
 
 **iks** is an object you need to build through the code:  
 all the numbers represent the index of the ```mesh.skeleton.bones[]``` property, which should be the parented armature inside blender.  
-Note that the order might change depending on you adding or removing objects in blender, so its better to use an algorithm to search the index by name or other way
+Note that the order might change depending on you adding or removing objects in blender, so its better to use an algorithm to search the index by name or other way  
+
+The contents is an array of objects, each one with the same properties:
+
 
 **target** is the floating bone to which the solver will try to reach  
 **effector** is the last bone that is going to point towards the object, the tip of the tentacle or limb  
 **links** is an array of objects, it has more properties but i dont use them here. The only relevant property is index, which is the index in mesh.skeleton.bone for this specific bone.
 
-Also note that the order the links are given is from tip to base, so your chain is usually like
-```name:"bone.000", child -> name:"bone.001", child -> name: "bone.002", child -> null```
-so links should be ```{index: 2, index: 1, index: 0}```
+Also note that the order the links are given is from tip to base, so your chain is usually like  
+```name:"bone.000", child -> name:"bone.001", child -> name: "bone.002", child -> null```  
+so links should be  
+```[ {index: 2}, {index: 1}, {index: 0} ]```
 
 ```
 bones = [
