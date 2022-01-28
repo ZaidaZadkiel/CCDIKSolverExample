@@ -259,7 +259,7 @@
       // cube.rotation.copy(skeleton.bones[bones[0].target].rotation);
       // skeleton.bones[bones[0].target].getWorldPosition(cube.position);
 
-      solver = new CCDIKSolver(meshes.TentacleFrontR, bones);
+      solver = new CCDIKSolver(meshes.Body, bones);
 
       scene.add( gltf.scene );
 
